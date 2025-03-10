@@ -1,0 +1,65 @@
+2025-03-11 00:31:09,225 - __main__ - INFO - Iniciando proceso ETL de Garmin Connect. Log guardado en /home/fpedrera/DEV/data/logs/garmin_etl_20250311_003108.log
+2025-03-11 00:31:09,225 - __main__ - INFO - INFO: Test de log - 2025-03-11 00:31:09.225697
+2025-03-11 00:31:09,225 - __main__ - WARNING - WARNING: Test de log - 2025-03-11 00:31:09.225697
+2025-03-11 00:31:09,225 - __main__ - ERROR - ERROR: Test de log - 2025-03-11 00:31:09.225697
+Test de escritura directa en el archivo de log
+2025-03-11 00:31:09,225 - __main__ - INFO - Archivo de log creado correctamente en: /home/fpedrera/DEV/data/logs/garmin_etl_20250311_003108.log
+2025-03-11 00:31:09,225 - __main__ - INFO - ✅ Credenciales configuradas correctamente para: felix.pedrera@gmail.com
+2025-03-11 00:31:09,226 - __main__ - INFO - Período de análisis: 2025-03-04 a 2025-03-11
+2025-03-11 00:31:09,226 - __main__ - INFO - === FASE 1: EXTRACCIÓN DE DATOS ===
+2025-03-11 00:31:13,090 - src.extract - INFO - Autenticación exitosa
+2025-03-11 00:31:13,090 - src.extract - INFO - Obteniendo actividades desde 2025-03-04 hasta 2025-03-11
+2025-03-11 00:31:13,384 - src.extract - INFO - Obtenidas 5 actividades
+2025-03-11 00:31:13,384 - src.extract - INFO - Obteniendo datos de steps
+2025-03-11 00:31:16,769 - src.extract - INFO - Datos de steps obtenidos para 8 días
+2025-03-11 00:31:16,770 - src.extract - INFO - Obteniendo datos de heart_rate
+2025-03-11 00:31:20,034 - src.extract - INFO - Datos de heart_rate obtenidos para 8 días
+2025-03-11 00:31:20,034 - src.extract - INFO - Obteniendo datos de sleep
+2025-03-11 00:31:23,877 - src.extract - INFO - Datos de sleep obtenidos para 8 días
+2025-03-11 00:31:23,878 - src.extract - INFO - Obteniendo datos de weight
+2025-03-11 00:31:26,728 - src.extract - INFO - Datos de weight obtenidos para 8 días
+2025-03-11 00:31:26,729 - src.extract - INFO - Obteniendo datos de stress
+2025-03-11 00:31:26,729 - src.extract - ERROR - Tipo de datos desconocido: stress
+2025-03-11 00:31:26,729 - src.extract - INFO - Datos de stress obtenidos para 0 días
+2025-03-11 00:31:26,730 - __main__ - INFO - === FASE 2: PROCESAMIENTO DE DATOS ===
+2025-03-11 00:31:26,733 - src.process - INFO - Datos crudos de actividades guardados en /home/fpedrera/DEV/data/raw_activities.json
+2025-03-11 00:31:26,736 - src.process - INFO - Datos crudos de steps guardados en /home/fpedrera/DEV/data/raw_steps.json
+2025-03-11 00:31:26,741 - src.process - INFO - Datos crudos de heart_rate guardados en /home/fpedrera/DEV/data/raw_heart_rate.json
+2025-03-11 00:31:26,779 - src.process - INFO - Datos crudos de sleep guardados en /home/fpedrera/DEV/data/raw_sleep.json
+2025-03-11 00:31:26,780 - src.process - INFO - Datos crudos de weight guardados en /home/fpedrera/DEV/data/raw_weight.json
+2025-03-11 00:31:26,780 - src.process - INFO - Procesando 5 actividades...
+2025-03-11 00:31:26,786 - src.process - INFO - Guardadas 5 actividades en /home/fpedrera/DEV/data/activities.csv
+2025-03-11 00:31:26,787 - src.process - INFO - Procesando datos de steps...
+2025-03-11 00:31:26,791 - src.process - INFO - Guardados 7 registros de steps en /home/fpedrera/DEV/data/steps.csv
+2025-03-11 00:31:26,791 - src.process - INFO - Procesando datos de heart_rate...
+2025-03-11 00:31:26,796 - src.process - INFO - Guardados 1 registros de heart_rate en /home/fpedrera/DEV/data/heart_rate.csv
+2025-03-11 00:31:26,796 - src.process - INFO - Procesando datos de sleep...
+2025-03-11 00:31:26,796 - src.process - WARNING - No se pudieron procesar datos de sleep
+2025-03-11 00:31:26,796 - src.process - INFO - Procesando datos de weight...
+2025-03-11 00:31:26,796 - src.process - WARNING - No se pudieron procesar datos de weight
+2025-03-11 00:31:26,796 - src.process - WARNING - No hay datos de stress para procesar
+2025-03-11 00:31:26,796 - __main__ - INFO - === FASE 3: CARGA EN DUCKDB ===
+2025-03-11 00:31:26,796 - src.load - INFO - Inicializando base de datos en /home/fpedrera/DEV/data/garmin_data.duckdb
+2025-03-11 00:31:26,831 - src.load - INFO - Cargando actividades desde /home/fpedrera/DEV/data/activities.csv...
+2025-03-11 00:31:26,852 - src.load - INFO - Cargadas 5 actividades en la base de datos
+2025-03-11 00:31:26,852 - src.load - INFO - Cargando datos desde /home/fpedrera/DEV/data/steps.csv a la tabla steps...
+2025-03-11 00:31:26,860 - src.load - INFO - Cargadas 7 filas en la tabla steps
+2025-03-11 00:31:26,860 - src.load - INFO - Cargando datos desde /home/fpedrera/DEV/data/heart_rate.csv a la tabla heart_rate...
+2025-03-11 00:31:26,868 - src.load - INFO - Cargadas 1 filas en la tabla heart_rate
+2025-03-11 00:31:26,868 - src.load - WARNING - El archivo /home/fpedrera/DEV/data/sleep.csv no existe
+2025-03-11 00:31:26,868 - src.load - WARNING - El archivo /home/fpedrera/DEV/data/weight.csv no existe
+2025-03-11 00:31:26,868 - src.load - WARNING - El archivo /home/fpedrera/DEV/data/stress.csv no existe
+2025-03-11 00:31:26,868 - src.load - INFO - Validando datos cargados con consultas de ejemplo:
+2025-03-11 00:31:26,871 - src.load - INFO - Top 5 tipos de actividad:
+2025-03-11 00:31:26,872 - src.load - INFO - - {'typeId': 13, 'typeKey': 'strength_training', 'parentTypeId': 29, 'isHidden': False, 'trimmable': False, 'restricted': False}: 2
+2025-03-11 00:31:26,872 - src.load - INFO - - {'typeId': 9, 'typeKey': 'walking', 'parentTypeId': 17, 'isHidden': False, 'trimmable': True, 'restricted': False}: 2
+2025-03-11 00:31:26,872 - src.load - INFO - - {'typeId': 15, 'typeKey': 'casual_walking', 'parentTypeId': 9, 'isHidden': False, 'trimmable': True, 'restricted': False}: 1
+2025-03-11 00:31:26,873 - src.load - INFO - Estadísticas de pasos: 7 días, Promedio: 9315, Máximo: 24864
+2025-03-11 00:31:26,908 - __main__ - INFO - Resumen de carga en DuckDB:
+2025-03-11 00:31:26,908 - __main__ - INFO - - activities: 5 filas
+2025-03-11 00:31:26,908 - __main__ - INFO - - steps: 7 filas
+2025-03-11 00:31:26,908 - __main__ - INFO - - heart_rate: 1 filas
+2025-03-11 00:31:26,908 - __main__ - INFO - - sleep: 0 filas
+2025-03-11 00:31:26,908 - __main__ - INFO - - weight: 0 filas
+2025-03-11 00:31:26,908 - __main__ - INFO - - stress: 0 filas
+2025-03-11 00:31:26,908 - __main__ - INFO - Proceso ETL completado!
